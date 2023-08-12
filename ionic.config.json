@@ -1,0 +1,7 @@
+{
+  "name": "moodFoods",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
