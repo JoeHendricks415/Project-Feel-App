@@ -16,27 +16,58 @@
     </ion-header>
   -->
   <div class="full-divsize">
-    <ion-grid>
-      <ion-row>
-        <ion-col text-center sizeLg="4" sizeMd="4" sizeXs="6" *ngFor="let item of locations" [routerLink]="[item.id]">
-          <div class="img-wrapper" style="background-image: url('{{item.image_url}}')">
-            <div class="container-inside">
-              {{item.name}}
-            </div>
-          </div>
-          <!--<br />
+    <!--<ion-grid>
+  <ion-row>
+    <ion-col text-center sizeLg="4" sizeMd="4" sizeXs="6" *ngFor="let item of locations" [routerLink]="[item.id]">
+      <div class="img-wrapper" style="background-image: url('{{item.image_url}}')">
+        <div class="container-inside">
           {{item.name}}
-          <br />
-          <br />
-           -->
-        </ion-col>
-      </ion-row>
-    </ion-grid>
+        </div>
+      </div>
+  -->
+    <!--<br />
+  {{item.name}}
+  <br />
+  <br />
+   -->
+    <!--</ion-col>
+  </ion-row>
+  </ion-grid>
+    -->
+    <!--<ion-grid>
+  <ion-row>
+    <ion-col col-6 *ngFor="let location of locations" [routerLink]="[location.id]">
+      -->
+    <!-- Use this for backup
+    <ion-card *ngFor="let location of locations" [routerLink]="[location.id]" style="background-image: url('{{location.image_url}}')">
+     <div class="card-title-div> </div>
+    <div class="card-title-div">{{location.name}}</div>
+    <div class="card-descript-div"> Rating: {{location.rating}}</div>
+  </ion-card>-->
+    <!--</ion-col>
+  </ion-row>
+  </ion-grid>-->
+
+
+    <ion-card *ngFor="let location of locations" [routerLink]="[location.id]">
+      <img src="{{location.image_url}}" />
+      <ion-card-header>
+        <ion-card-title>{{location.name}}</ion-card-title>
+        <ion-card-subtitle *ngFor="let categorie of location.categories"> {{ categorie.title }}</ion-card-subtitle>
+       
+      </ion-card-header>
+
+      <ion-card-content>
+        This is placeholder text so pretty much, blah blah blah.
+      </ion-card-content>
+    </ion-card>
+
+
   </div>
 
-  <ion-infinite-scroll (ionInfinite)="loadMore($any($event))">
-    <ion-infinite-scroll-content loadingSpinner="bubbles"
-                                 loadingText="Loading more data...">
-    </ion-infinite-scroll-content>
-  </ion-infinite-scroll>
+    <ion-infinite-scroll (ionInfinite)="loadMore($any($event))">
+      <ion-infinite-scroll-content loadingSpinner="bubbles"
+                                   loadingText="Loading more data...">
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
 </ion-content>

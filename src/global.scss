@@ -25,6 +25,36 @@
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
 
+ion-card {
+  //height: 30%;
+  //width: 25%;
+  //background-size: cover;
+  //vertical-align: middle;
+}
+
+ion-card-subtitle {
+  //color: #F2C57C;
+}
+
+.card-title-div {
+  font-size: 50px !important;
+  color: #F2C57C;
+  text-align: center !important;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  //display: flex;
+  //justify-content: center;
+  opacity: 1;
+}
+
+.card-descript-div {
+  font-size: 20px !important;
+  color: #F2C57C;
+  text-align: center !important;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  //display: flex;
+  //justify-content: center;
+  opacity: 1;
+}
 
 ion-title.title-large {
   color: #ffffff;
@@ -75,7 +105,7 @@ ion-toolbar {
 
 .container-inside {
   text-align: center;
-  //text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #fff;
   color: #F2C57C;
   font-size: 25px;
   position: absolute;
