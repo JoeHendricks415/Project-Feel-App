@@ -1,0 +1,42 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Locations</ion-title>
+      <ion-buttons slot="end">
+        <ion-back-button defaultHref="/locations">
+        </ion-back-button>
+      </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" style="--background: #F2C57C;">
+  <!--<ion-header collapse="condense">
+      <ion-toolbar>
+        <ion-title>Locations</ion-title>
+      </ion-toolbar>
+    </ion-header>
+  -->
+  <div class="full-divsize">
+    <ion-grid>
+      <ion-row>
+        <ion-col text-center sizeLg="4" sizeMd="4" sizeXs="6" *ngFor="let item of locations" [routerLink]="[item.id]">
+          <div class="img-wrapper" style="background-image: url('{{item.image_url}}')">
+            <div class="container-inside">
+              {{item.name}}
+            </div>
+          </div>
+          <!--<br />
+          {{item.name}}
+          <br />
+          <br />
+           -->
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <ion-infinite-scroll (ionInfinite)="loadMore($any($event))">
+    <ion-infinite-scroll-content loadingSpinner="bubbles"
+                                 loadingText="Loading more data...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

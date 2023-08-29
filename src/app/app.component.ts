@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +9,15 @@ import { IonicModule } from '@ionic/angular';
   standalone: true,
   imports: [IonicModule],
 })
+
 export class AppComponent {
-  constructor() {}
+  constructor(private route: Router) {
+    this.initializeApp();
+  }
+
+  initializeApp() {
+    this.route.navigateByUrl('moods');
+  }
+  
+
 }

@@ -24,3 +24,79 @@
 @import "@ionic/angular/css/text-alignment.css";
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
+
+
+ion-title.title-large {
+  color: #ffffff;
+  font-size: 40px;
+  background: #f2ae04;
+  //text-align: center;
+}
+
+ion-title {
+  --color: #ffffff;
+  font-size: 25px;
+}
+
+ion-toolbar {
+  --background: #f2ae04;
+  height: 50px;
+}
+
+.contentcolors {
+  background-color: red;
+}
+
+.full-image {
+  width: 100%;
+  height: 50%;
+}
+
+.full-divsize {
+  width: 100%;
+  height: 100%;
+}
+
+.img-wrapper {
+  min-height: 200px;
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 1;
+  font-family: 'Oxygen', sans-serif;
+  word-spacing: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  position: relative;
+  //--color: #ffffff;
+}
+
+.container-inside {
+  text-align: center;
+  //text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  color: #F2C57C;
+  font-size: 25px;
+  position: absolute;
+  text-align: center;
+  //background-color: #000000;
+  //backdrop-filter: blur(15px) saturate(300%);
+}
+.container-inside-whitebox {
+  font-size: 25px;
+  background-color: #F2C57C;
+  position: absolute;
+  text-align: center;
+  opacity: .5;
+}
+
+ion-col {
+  text-align: center;
+}
+
+ion-input {
+  .text-input {
+    text-align: center;
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\pages",
+    "\\src\\app\\pages\\location-details",
+    "\\src\\app\\pages\\locations",
+    "\\src\\app\\pages\\moods",
+    "\\src\\app\\services",
+    "\\src\\environments",
+    "\\src\\theme"
+  ],
+  "PreviewInSolutionExplorer": false
+}

@@ -1,0 +1,17 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title> {{ location?.name }} </ion-title>
+    <ion-buttons slot="end">
+      <ion-back-button defaultHref="/locations">
+
+      </ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" style="--background: #F2C57C;">
+  <ion-card *ngIf="location">
+    <img [src]="location?.image_url"
+         class="location-img" />
+  </ion-card>
+</ion-content>
