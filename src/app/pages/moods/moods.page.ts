@@ -31,7 +31,7 @@ export class MoodsPage implements OnInit {
     
     this.distance = "20";
     this.mood = "seafood";
-    this.zipcode = "08087";
+    this.zipcode = "90210";
     this.userLatitude = "";
     this.userLongitude = "";
     this.useGeolocation = false;
