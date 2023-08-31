@@ -1,5 +1,5 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
+<ion-header color="translucent" [translucent]="true">
+  <ion-toolbar color="translucent">
     <ion-title>Locations</ion-title>
       <ion-buttons slot="end">
         <ion-back-button defaultHref="/locations">
@@ -52,14 +52,15 @@
     <ion-card *ngFor="let location of locations" [routerLink]="[location.id]">
       <img src="{{location.image_url}}" />
       <ion-card-header>
-        <ion-card-title>{{location.name}}</ion-card-title>
-        <ion-card-subtitle *ngFor="let categorie of location.categories"> {{ categorie.title }}</ion-card-subtitle>
-       
+        <ion-card-subtitle> 
+          <div class="card_subtitle_div" *ngFor="let categorie of location.categories"> &nbsp;&nbsp; {{ categorie.title }} &nbsp;&nbsp; </div>
+        </ion-card-subtitle>
+        <ion-card-title>
+          <div class="card_title_div">{{location.name}}</div>
+        </ion-card-title>
       </ion-card-header>
 
-      <ion-card-content>
-        This is placeholder text so pretty much, blah blah blah.
-      </ion-card-content>
+      <ion-card-content> </ion-card-content>
     </ion-card>
 
 

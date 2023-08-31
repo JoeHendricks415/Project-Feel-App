@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { InfiniteScrollCustomEvent, IonicModule, LoadingController } from '@ionic/angular';
-import { ApiResults, LocationService } from 'src/app/services/location.service';
+import { LocationService } from 'src/app/services/location.service';
 import { RouterLink, Router, ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -20,6 +20,11 @@ export class LocationsPage implements OnInit {
   mood: string = "";
   zipcode: string = "";
 
+  userLatitude: string = "";
+  userLongitude: string = "";
+
+  useGeolocation: boolean = false;
+
 
   constructor(private locationService: LocationService,
     private loadingCtrl: LoadingController,
@@ -27,44 +32,51 @@ export class LocationsPage implements OnInit {
     private route: ActivatedRoute) {
     this.locations = [];
 
-      this.distance = this.route.snapshot.queryParamMap.get('distance')!;
-      this.mood = this.route.snapshot.queryParamMap.get('mood')!;
-      this.zipcode = this.route.snapshot.queryParamMap.get('zipcode')!;
+    this.distance = this.route.snapshot.queryParamMap.get('distance')!;
+    this.mood = this.route.snapshot.queryParamMap.get('mood')!;
+    this.zipcode = this.route.snapshot.queryParamMap.get('zipcode')!;
+    this.userLatitude = this.route.snapshot.queryParamMap.get('userLatitude')!;
+    this.userLongitude = this.route.snapshot.queryParamMap.get('userLongitude')!;
 
+    this.useGeolocation = JSON.parse(this.route.snapshot.queryParamMap.get('useGeolocation')!);
   }
 
   ngOnInit() {
-    //console.log(`distance: ${this.distance} - mood: ${this.mood} - zipcode: ${this.zipcode}`);
     this.loadLocations();
   }
 
   async loadLocations(event?: InfiniteScrollCustomEvent) {
+    //Initialize loading
     const loading = await this.loadingCtrl.create({
       message: 'Feeding The Hunger..',
       spinner: 'bubbles',
     });
     await loading.present();
 
-    this.locationService.getLocations(this.currentPage, this.distance, this.mood, this.zipcode)
+    //Check if using geolocation
+    if(this.useGeolocation === false){
+      this.locationService.getLocationsWithoutCoordinates(this.currentPage, this.distance, this.mood, this.zipcode)
         .subscribe(res => {
           loading.dismiss();
           this.locations.push(...res.businesses);
           console.log(this.locations);
-
-          //Code to sort by rating - works
-          //this.locations = res.businesses.sort((b, a) => a.rating - b.rating);
-          //console.log(this.locations);
-
           event?.target.complete();
       });
+    } else {
+      this.locationService.getLocationsWithCoordinates(this.currentPage, this.distance, this.mood, this.userLatitude, this.userLongitude)
+        .subscribe(res => {
+          loading.dismiss();
+          this.locations.push(...res.businesses);
+          console.log(this.locations);
+          event?.target.complete();
+      });
+    }
   }
 
-  sortLocationsByRatingHighest(locations: ApiResults) {
-    //this.locations = locations.businesses.sort(function (a, b) {
-    //  return a.rating - b.rating;
-    //});
-    //console.log(this.locations);
-  }
+  //Code to sort by rating - works
+  //this.locations = res.businesses.sort((b, a) => a.rating - b.rating);
+  //console.log(this.locations);
+
 
   loadMore(event: InfiniteScrollCustomEvent) {
     this.currentPage++;

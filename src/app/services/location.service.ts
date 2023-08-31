@@ -68,13 +68,17 @@ export class LocationService {
 
   constructor(private http: HttpClient) { }
 
-  getLocations(page = 1, distance: string, mood: string, zipcode: string): Observable<ApiResults> {
+  getLocationsWithoutCoordinates(page = 1, distance: string, mood: string, zipcode: string): Observable<ApiResults> {
     return this.http.get<any>(`${environment.baseUrl}/api/yelp/${distance}/${mood}/${zipcode}`);
   }
 
-  getLocationDetails(id: string) {
+  getLocationById(id: string) {
     return this.http.get<ApiResults>(
       `${environment.baseUrl}/api/yelp/${id}`
     );
+  }
+
+  getLocationsWithCoordinates(page = 1, distance: string, mood: string, latitude: string, longitude: string): Observable<ApiResults> {
+    return this.http.get<any>(`${environment.baseUrl}/api/yelp/${distance}/${mood}/${latitude}/${longitude}`);
   }
 }

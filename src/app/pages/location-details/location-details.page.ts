@@ -23,7 +23,7 @@ export class LocationDetailsPage implements OnInit {
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id') as string;
-    this.locationService.getLocationDetails(id).subscribe((res) => {
+    this.locationService.getLocationById(id).subscribe((res) => {
       console.log(res);
       this.location = res;
     });

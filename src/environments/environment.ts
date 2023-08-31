@@ -4,10 +4,8 @@
 
 export const environment = {
   production: false,
-
-  apiKey: '',
   baseUrl: 'http://localhost:8080',
-  images: '',
+  mapKey: 'AIzaSyCW14ZI3Pn40M7dbgvGUuGUs6B2XYnNEVY'
 };
 
 /*

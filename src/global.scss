@@ -30,14 +30,34 @@ ion-card {
   //width: 25%;
   //background-size: cover;
   //vertical-align: middle;
+  text-align: center !important;
 }
 
 ion-card-subtitle {
   //color: #F2C57C;
 }
+.header::after {
+  background-image: none;
+}
+
+.ion-text-center {
+  text-align: center !important;
+}
+
+.card_title_div {
+  text-align: center !important;
+  font-size: 30px !important;
+  font-family: 'Oxygen', sans-serif;
+}
+
+.card_subtitle_div {
+  text-align: center !important;
+  display: inline-block;
+  font-family: 'Oxygen', sans-serif;
+}
 
 .card-title-div {
-  font-size: 50px !important;
+  font-size: 60px !important;
   color: #F2C57C;
   text-align: center !important;
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
