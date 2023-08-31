@@ -10,8 +10,20 @@
 </ion-header>
 
 <ion-content [fullscreen]="true" style="--background: #F2C57C;">
-  <ion-card *ngIf="location">
-    <img [src]="location?.image_url"
-         class="location-img" />
-  </ion-card>
+  
+    <!--<img [src]="location?.image_url"
+         class="location-img" />-->
+    
+         <!--<ion-slides [options]="swiperOptions" class="ion-margin-top">
+          <ion-slide *ngFor="let photo of location?.photos">
+            <ion-card class="ion-card-details-img">
+              <img src="{{photo}}">
+            </ion-card>
+          </ion-slide>
+         </ion-slides>-->
+
+         <app-swiper [slides]="slides">
+            
+         </app-swiper>
+  
 </ion-content>

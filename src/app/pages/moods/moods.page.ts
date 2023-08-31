@@ -66,16 +66,6 @@ export class MoodsPage implements OnInit {
     this.router.navigate(['/locations'], params);
   }
 
-  async checkAndCloseLoader() {
-    // Use getTop function to find the loader and dismiss only if loader is present.
-    const loader = await this.loadingCtrl.getTop();
-    // if loader present then dismiss
-     if(loader !== undefined) { 
-       await this.loadingCtrl.dismiss();
-     }
-   }
-
-
   fetchLocationWithoutCoordinates() {
     this.useGeolocation = false;
 
@@ -86,6 +76,15 @@ export class MoodsPage implements OnInit {
     }
     this.router.navigate(['/locations'], params);
   }
+
+  async checkAndCloseLoader() {
+    // Use getTop function to find the loader and dismiss only if loader is present.
+    const loader = await this.loadingCtrl.getTop();
+    // if loader present then dismiss
+     if(loader !== undefined) { 
+       await this.loadingCtrl.dismiss();
+     }
+   }
 
   //Optional way to navigate with params
   /*navigateWithParams() {
