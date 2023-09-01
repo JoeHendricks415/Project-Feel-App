@@ -31,10 +31,38 @@ ion-card {
   //background-size: cover;
   //vertical-align: middle;
   text-align: center !important;
-  margin: 0 !important;
+  margin: -20 !important;
   padding: 0 !important;
-  background-color: #ead3ae;
-  
+  background-color: #f5bf4d;
+  //margin-bottom: -20px !important;
+  margin-top: 0px  !important;
+  margin-bottom: -75px !important;
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+}
+
+.square {
+  background-color: #f4d38a;
+  justify-content: center;
+  width: 95%;
+  height: 100px;
+  margin: auto;
+  transform: translateY(-70%);
+  position:relative;
+  border-top-right-radius:15px;
+  border-top-left-radius:15px;
+  border-bottom-right-radius:15px;
+  border-bottom-left-radius:15px;
+}
+
+.inner-square-text {
+  //background-color: #ffffff;
+  // position: absolute;
+   top: 50%; left: 50%;
+   transform: translate(-50%,-30%);
+   width: 95%;
+   height: 80px;
+  position: absolute;
 }
 
 ion-card-subtitle {

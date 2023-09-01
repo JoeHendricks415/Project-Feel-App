@@ -52,12 +52,17 @@
     <ion-card *ngFor="let location of locations" [routerLink]="[location.id]">
       <img src="{{location.image_url}}" />
       <ion-card-header>
-        <ion-card-subtitle> 
-          <div class="card_subtitle_div" *ngFor="let categorie of location.categories"> &nbsp;&nbsp; {{ categorie.title }} &nbsp;&nbsp; </div>
-        </ion-card-subtitle>
-        <ion-card-title>
-          <div class="card_title_div">{{location.name}}</div>
-        </ion-card-title>
+        <div class="square" style="border:5px solid #f0f0f0;">
+          <div class="inner-square-text">
+            <!--<ion-card-subtitle> 
+              <div class="card_subtitle_div" *ngFor="let categorie of location.categories"> &nbsp;&nbsp; {{ categorie.title }} &nbsp;&nbsp; </div>
+            </ion-card-subtitle>-->
+            <ion-card-title>
+              <div class="card_title_div">{{location.name}}</div>
+            </ion-card-title>
+          </div>
+        </div>
+        
       </ion-card-header>
 
       <ion-card-content> </ion-card-content>
