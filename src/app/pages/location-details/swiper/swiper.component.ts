@@ -15,6 +15,7 @@ export class SwiperComponent  implements OnInit {
   @Input() slides: any[] = [];
   swiperModules = [IonicSlides];
 
+
   constructor() { }
 
   ngOnInit() {}

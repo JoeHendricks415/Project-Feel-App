@@ -1,6 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title> {{ location?.name }} </ion-title>
+    <ion-title class="ion-text-center"></ion-title>
     <ion-buttons slot="end">
       <ion-back-button defaultHref="/locations">
 
@@ -25,5 +25,18 @@
          <app-swiper [slides]="slides">
             
          </app-swiper>
+
+         <ion-card>
+          <ion-card-header>
+            <ion-card-title>{{ location?.name }}</ion-card-title>
+            <ion-card-subtitle>
+              <div class="card_subtitle_div" *ngFor="let categorie of location?.categories"> &nbsp;&nbsp; {{ categorie?.title }} &nbsp;&nbsp; </div>
+            </ion-card-subtitle>
+          </ion-card-header>
+        
+          <ion-card-content>
+            Here's a small text description for the card content. Nothing more, nothing less.
+          </ion-card-content>
+        </ion-card>
   
 </ion-content>
