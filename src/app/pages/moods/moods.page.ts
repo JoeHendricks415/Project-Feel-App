@@ -24,7 +24,10 @@ export class MoodsPage implements OnInit {
   userLongitude: string ="";
   useGeolocation : boolean = false;
   loadingCtrl: LoadingController = new LoadingController;
-  
+
+  icons: string[] = [];
+  moods: string[] = [];
+  items: Array<{ title: string; icon: string; }> = [];
   
 
   constructor(public nav: NavController, private router: Router) {
@@ -35,9 +38,32 @@ export class MoodsPage implements OnInit {
     this.userLatitude = "";
     this.userLongitude = "";
     this.useGeolocation = false;
+    this.moodFactory();
   }
 
   ngOnInit() {
+    
+  }
+
+  moodFactory() {
+    this.icons = ['trophy', 'cafe', 'rose', 'nutrition', 'pizza', 'car',
+    'beer', 'glasses', 'ice-cream', 'ice-cream', 'nutrition', 'cash', 'car', 'boat',
+    'egg', 'rose'];
+    this.moods = ['Celebration', 'Tired', 'Fancy', 'Healthy', 'Hungover', 'In A Hurry',
+    'Liquid Courage', 'Munchies', 'Sad', 'Lo-On-Sugar', 'Fruity', 'Broke', 'Lazy',
+     'Fishy', 'Morning Delight', 'Organic'];
+    this.items = [];
+    
+    for (let i = 0; i < this.moods.length; i++) {
+      this.items.push({
+        title: this.moods[i],
+        icon: this.icons[i]
+      });
+    }
+  }
+
+  itemSelected(item: string) {
+    console.log("Selected Item", item);
   }
 
   async fetchLocationWithCoordinates() {
